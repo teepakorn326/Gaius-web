@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useRoom } from "../../contexts/RoomContext";
 import dateFormat from "dateformat";
 import { useAuth } from "../../contexts/AuthContext";
@@ -8,6 +8,7 @@ import { useEffect } from "react";
 function AppointmentModal({ roomData, book }) {
   const data = book?.data?.room;
 
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const { user } = useAuth();
@@ -42,6 +43,17 @@ function AppointmentModal({ roomData, book }) {
   };
   const date = new Date(selectDate || dateNow);
   const newDate = addOneYear(date);
+
+  const handleSubmitForm = async (e) => {
+    e.preventDefault();
+    try {
+      appointment(booking, id);
+
+      navigate("/notification");
+    } catch (err) {
+      console.log("error", err);
+    }
+  };
 
   return (
     <>
@@ -125,7 +137,7 @@ function AppointmentModal({ roomData, book }) {
                   <button
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="submit"
-                    onClick={() => setShowModal(false)}
+                    onClick={handleSubmitForm}
                   >
                     Confirm
                   </button>

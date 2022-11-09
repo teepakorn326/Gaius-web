@@ -80,7 +80,7 @@ function RoomDetail() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const data = location.state?.kuy;
+  // const data = location.state?.kuy;
 
   const handleClickDelete = async (id) => {
     await deleteRoom(id);
@@ -88,7 +88,7 @@ function RoomDetail() {
     // navigate(-1);
     window.location.assign("/mylist");
   };
-
+  console.log("book", book);
   return (
     <div className=" h-[100vh] w-full px-[220px] ">
       <div className="h-[12vh] flex justify-center flex-col font-bold text-[3rem] ">
@@ -120,7 +120,10 @@ function RoomDetail() {
             <div className=" text-[10px] ">
               you'd like to have a look at this property ?
             </div>
-            <AppointmentModal book={book} roomData={roomData} />
+
+            {book?.data?.room?.ownerId !== user?.id && (
+              <AppointmentModal book={book} roomData={roomData} />
+            )}
             {/* <Link className=" text-blue-900 hover:text-blue-500 underline font-bold  ">
               CLICK HERE
             </Link> */}

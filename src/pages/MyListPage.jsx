@@ -91,8 +91,8 @@ function MyListPage() {
         </div>
       </div>
       <div className="grid grid-cols-4 content-start pt-10 gap-9 px-[220px] ">
-        {data.map((kuy) => (
-          <RoomList kuy={kuy} />
+        {data.map((item) => (
+          <RoomList item={item} />
         ))}
       </div>
     </div>

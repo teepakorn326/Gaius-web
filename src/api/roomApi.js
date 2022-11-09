@@ -11,12 +11,11 @@ export const createRoom = (input) => {
 
 export const updateRoom = (input, id) =>
   axios.patch(`/room/updateroom/${id}`, input);
-// export const deleteRoom = (input) => axios.delete(`/room/${estateId}`);
 
 export const deletePhoto = (id) => axios.delete(`/room/deletephoto/${id}`);
 export const deleteRoom = (id) => axios.delete(`/room/deleteroom/${id}`);
 export const appointment = (input, estateId) =>
-  axios.post(`/appointment/${estateId}`, input);
+  axios.post(`/room/appointment/${estateId}`, input);
 
 export const getRoom = (id) => axios.get(`/room/getroom/${id}`);
 export const getAllRoom = (query) =>

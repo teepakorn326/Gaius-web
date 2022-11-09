@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { Bars4Icon } from "@heroicons/react/20/solid";
+import { Bars3Icon } from "@heroicons/react/20/solid";
 // import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -18,7 +18,7 @@ export default function Dropdown() {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="text-lg  items-center w-6 justify-center  ">
-          <Bars4Icon
+          <Bars3Icon
             className="w-fit hover:text-[#194569]"
             aria-hidden="true"
           />
