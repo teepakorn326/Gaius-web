@@ -80,8 +80,6 @@ function RoomDetail() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // const data = location.state?.kuy;
-
   const handleClickDelete = async (id) => {
     await deleteRoom(id);
     toast.success(`success delete room `);

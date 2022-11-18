@@ -37,7 +37,9 @@ function NotificationCard({ result }) {
     };
     const res = await updateRoom(successBooking, result?.Estate.id);
   };
-  console.log("result", result);
+  const handleDeleteOrder = async () => {
+    return await deleteBookingList(result?.id);
+  };
   return (
     <div className="border rounded flex justify-between h-72  w-full">
       <div className="w-2/3 justify-between flex ">
@@ -75,7 +77,10 @@ function NotificationCard({ result }) {
                 Accept
               </span>
             </button>
-            <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+            <button
+              onClick={handleDeleteOrder}
+              className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800"
+            >
               <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                 Reject
               </span>
